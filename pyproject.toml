@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "marketing_agency_altivus"
+version = "0.1.0"
+description = "marketing-agency-altivus using crewAI"
+authors = ["Your Name <you@example.com>"]
+
+[tool.poetry.dependencies]
+python = ">=3.10,<=3.13"
+crewai = { extras = ["tools"], version = "^0.41.1" }
+
+[tool.poetry.scripts]
+marketing_agency_altivus = "marketing_agency_altivus.main:run"
+train = "marketing_agency_altivus.main:train"
+replay = "marketing_agency_altivus.main:replay"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
