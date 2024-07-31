@@ -2,7 +2,8 @@ from textwrap import dedent
 
 from crewai import Task
 
-from marketing_agency_altivus.config.agents import planejador, pesquisador, escritor, fotografo, gerente
+from marketing_agency_altivus.config.agents import planejador, pesquisador, escritor, fotografo, gerente, \
+    estrategista_de_conteudo
 
 plano_task = Task(
     description=(
@@ -18,6 +19,15 @@ plano_task = Task(
                     "com um esboço, análise do público, "
                     "palavras-chave de SEO e recursos.",
     agent=planejador,
+    verbose=2
+)
+
+estrategia_task = Task(
+    description="Analise em quais dias na semana e em que horários um determinado post sobre {topic} terá o maior "
+                "alcance em uma rede social.",
+    expected_output="Um calendário para 1 semana de posts sobre {topic}, especifique em uma tabela os melhores dias "
+                    "e melhores horários para estes posts",
+    agent=estrategista_de_conteudo,
     verbose=2
 )
 

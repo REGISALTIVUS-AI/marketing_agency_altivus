@@ -66,6 +66,19 @@ planejador = Agent(
     allow_delegation=False
 )
 
+estrategista_de_conteudo = Agent(
+    role='Estrategista',
+    goal=' Criar um calendário de postagens com os '
+         ' melhores horários de postagem para cada dia da semana. '
+         ' baseado em sua experiência sobre {topic}. '
+    ,
+    verbose=True,
+    backstory="Você é um pesquisador experiente, sempre em busca das últimas tendências e informações relevantes sobre {topic}.",
+    llm=gpt4o_mini_llm,
+    # tools=[Google Keyword Planner],
+    allow_delegation=False
+)
+
 # Vai explorar a internet
 pesquisador = Agent(
     role='Pesquisador',
