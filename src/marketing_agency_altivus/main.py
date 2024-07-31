@@ -1,41 +1,16 @@
 #!/usr/bin/env python
-import sys
-from marketing_agency_altivus.crew import MarketingAgencyAltivusCrew
+from marketing_agency_altivus.crew import crew
+from datetime import datetime
 
-# This main file is intended to be a way for your to run your
-# crew locally, so refrain from adding necessary logic into this file.
-# Replace with inputs you want to test with, it will automatically
-# interpolate any tasks and agents information
+result = crew.kickoff(inputs={
+    'topic': 'Inteligência Artificial e Agentes Inteligêntes',
+    'n': 1})
 
-def run():
-    """
-    Run the crew.
-    """
-    inputs = {
-        'topic': 'AI LLMs'
-    }
-    MarketingAgencyAltivusCrew().crew().kickoff(inputs=inputs)
+# Converter o resultado para string antes de escrever no arquivo
+result_str = str(result)
 
-
-def train():
-    """
-    Train the crew for a given number of iterations.
-    """
-    inputs = {
-        "topic": "AI LLMs"
-    }
-    try:
-        MarketingAgencyAltivusCrew().crew().train(n_iterations=int(sys.argv[1]), inputs=inputs)
-
-    except Exception as e:
-        raise Exception(f"An error occurred while training the crew: {e}")
-
-def replay():
-    """
-    Replay the crew execution from a specific task.
-    """
-    try:
-        MarketingAgencyAltivusCrew().crew().replay(task_id=sys.argv[1])
-
-    except Exception as e:
-        raise Exception(f"An error occurred while replaying the crew: {e}")
+# Salvar o resultado em um arquivo
+current_date = datetime.now().strftime("%Y-%m-%d")
+filename = f"posts-{current_date}.txt"
+with open(filename, 'w', encoding='utf-8') as file:
+    file.write(result_str)
