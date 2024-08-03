@@ -32,8 +32,8 @@ estrategia_task = Task(
 )
 
 pesquisa_task = Task(
-    description="Pesquise as últimas tendências sobre {topic}.",
-    expected_output="Um relatório detalhado sobre as tendências mais recentes sobre {topic} na área de tecnologia.",
+    description="Vasculhe a página para buscar informações sobre cortes de cabelo",
+    expected_output="Uma tabela com o produto, a descricao e o valor",
     agent=pesquisador,
     verbose=2
 )

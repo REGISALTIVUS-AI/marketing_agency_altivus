@@ -44,11 +44,18 @@ def create_scrape_tools(urls):
 
 
 urls = [
-    "https://www.artificialintelligence-news.com/"
-    "https://www.forbes.com/ai/"
+    "https://reginaldoaabh.wixsite.com/altivus-ai-alfa"
 ]
 
 scrape_tools = create_scrape_tools(urls)
+
+
+# agente para aguardar um horario
+# aguarde a data e hora da planilha gerada pelo agente estrategista
+# como colocar um agente em modo stand by
+# agente 1 dando os inputs e o 2 recebendo os inputs
+# raspagem do site do wix e adicionar os inputs dos agentes
+# apontar para o Google Keyword Planner para tentar raspar keywords, escrever no prompt para basear o calendario nas informacoes de fluxo de trafego vinda do site e keyword do site
 
 # Divide e organiza as tarefas
 planejador = Agent(
@@ -82,10 +89,8 @@ estrategista_de_conteudo = Agent(
 # Vai explorar a internet
 pesquisador = Agent(
     role='Pesquisador',
-    goal='Pesquisar tendências para postagens sobre {topic} na área '
-         'de tecnologia com base no planejamento do Planejador. '
-         'Seu trabalho é a base para que '
-         'o escritor possa escrever {n} posts sobre {topic}',
+    goal='Pesquisar sobre os produtos em determinada pagina e '
+         'me retornar a descricao deles e seu valor ',
     verbose=True,
     backstory="Você é um pesquisador experiente, sempre em busca das últimas tendências e informações relevantes sobre {topic}.",
     llm=gpt4o_mini_llm,

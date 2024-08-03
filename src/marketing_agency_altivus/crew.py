@@ -13,8 +13,8 @@ from marketing_agency_altivus.config.tasks import revisao_task, criacao_imagem_t
 
 #Organiza uma ordem de execução tanto de agentes quanto de tarefas, process define que é sequencial.
 crew = Crew(
-    agents=[planejador, estrategista_de_conteudo, pesquisador, escritor, fotografo, gerente],
-    tasks=[plano_task, estrategia_task, pesquisa_task, escrita_task, criacao_imagem_task, revisao_task],
+    agents=[pesquisador],
+    tasks=[pesquisa_task],
     process=Process.sequential,
     verbose=2,
     memory=True

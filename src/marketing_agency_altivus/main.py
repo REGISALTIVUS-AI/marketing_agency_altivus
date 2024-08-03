@@ -10,7 +10,7 @@ result = crew.kickoff(inputs={
 result_str = str(result)
 
 # Salvar o resultado em um arquivo
-current_date = datetime.now().strftime("%Y-%m-%d")
-filename = f"posts-{current_date}.txt"
-with open(filename, 'w', encoding='utf-8') as file:
-    file.write(result_str)
+# current_date = datetime.now().strftime("%Y-%m-%d")
+# filename = f"posts-{current_date}.txt"
+# with open(filename, 'w', encoding='utf-8') as file:
+#     file.write(result_str)
