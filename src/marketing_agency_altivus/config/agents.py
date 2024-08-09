@@ -2,10 +2,11 @@ import os
 from textwrap import dedent
 
 from crewai import Agent
-from crewai_tools.tools.scrape_website_tool.scrape_website_tool import ScrapeWebsiteTool
 from dotenv import load_dotenv
 from langchain_groq import ChatGroq
 from langchain_openai import ChatOpenAI
+
+from marketing_agency_altivus.tools.Tools_1A import create_scrape_tools
 
 # from langchain_openai import ChatOpenAI
 
@@ -25,23 +26,6 @@ llama3_70b = ChatGroq(model="llama3-70b-8192", api_key=groq_api_key)
 # llm = Ollama(
 #     model = "crewai-llama2",
 #     base_url = "http://localhost:11434")
-
-
-# ainew = ScrapeWebsiteTool(
-#     website_url="https://www.artificialintelligence-news.com/"
-# )
-#
-# forbes = ScrapeWebsiteTool(
-#     website_url="https://www.forbes.com/ai/"
-# )
-
-def create_scrape_tools(urls):
-    tools = []
-    for url in urls:
-        tool = ScrapeWebsiteTool(website_url=url)
-        tools.append(tool)
-    return tools
-
 
 urls = [
     "https://www.artificialintelligence-news.com/"
